@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Score and Sections</title>
+  <style>
+    body {
+  background: #e8efff;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+}
+
+.score-bar {
+  background-color: #a4161a;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.section-card {
+  background: white;
+  margin-top: 20px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.section-header {
+  background-color: #f5f5f5;
+  padding: 15px 20px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.section-content {
+  padding: 10px 20px;
+}
+
+.item {
+  background-color: #f5f5f5;
+  margin-bottom: 10px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 3px;
+}
+
+.item a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.item a:hover {
+  text-decoration: underline;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="score-bar">
+    <span>Total Score</span>
+    <span class="score-value">0.15</span>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      Finding and Reasoning
+    </div>
+    <div class="section-content">
+      <div class="item">
+        <span>WHAT IS FOUND</span>
+        <a href="#">Show</a>
+      </div>
+      <div class="item">
+        <span>WHY IT IS SUSPICIOUS</span>
+        <a href="#">Show</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-card">
+    <div class="section-header">
+      Risk and Recommendation
+    </div>
+    <div class="section-content">
+      <div class="item">
+        <span>POTENTIAL RISK</span>
+        <a href="#">Show</a>
+      </div>
+      <div class="item">
+        <span>RECOMMENDATION</span>
+        <a href="#">Show</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

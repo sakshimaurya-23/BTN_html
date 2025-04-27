@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Fraud Detection Table</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fff;
+      padding: 20px;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    .table th, .table td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #ddd;
+      text-align: left;
+    }
+
+    .table th {
+      background-color: #f5f5f5;
+    }
+
+    .status-complete {
+      color: green;
+      font-weight: bold;
+    }
+
+    .status-detected {
+      color: red;
+      font-weight: bold;
+    }
+
+    .status-not-detected {
+      color: green;
+      font-weight: bold;
+    }
+
+    a {
+      color: #0f62fe;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Uploaded Bank Statement Analysis</h2>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>File Name</th>
+        <th>Status</th>
+        <th>Transaction Inconsistency</th>
+        <th>Illegitimate Income</th>
+        <th>Imbalance Cash Flow</th>
+        <th>Suspicious Deposit</th>
+        <th>Linked Activity</th>
+        <th>Income ≠ Expense</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="#" id="fileNameCell">Loading...</a></td>
+
+        <td class="status-complete">✅ Completed</td>
+        <td class="status-detected">❌ Detected</td>
+        <td class="status-detected">❌ Detected</td>
+        <td class="status-detected">❌ Detected</td>
+        <td class="status-detected">❌ Detected</td>
+        <td class="status-detected">❌ Detected</td>
+        <td class="status-not-detected">✅ Not Detected</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>
+<script>
+    const uploadedFileName = localStorage.getItem('uploadedFileName');
+    if (uploadedFileName) {
+      document.getElementById('fileNameCell').textContent = uploadedFileName;
+      document.getElementById('fileNameCell').href = "#"; // Optional: link to preview or storage
+    }
+  </script>
+  

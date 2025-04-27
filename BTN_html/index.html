@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Smart Credit Analyzer</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "IBM Plex Sans", Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+    }
+
+    .navbar {
+      width: 100%;
+      height: 54px;
+      background: #000;
+      color: #fff;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-left img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .navbar h1 {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .navbar .bold {
+      font-weight: 700;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar-right img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .header {
+      background: url('Banner.png') no-repeat center/cover;
+      padding: 2rem;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      min-height: 180px;
+    }
+
+    .tab-bar {
+      background-color: #e0e0e0;
+      padding: 0.5rem 2rem;
+      font-size: 0.9rem;
+    }
+
+    .container {
+      padding: 2rem;
+    }
+
+    .home-section {
+      background: white;
+      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      border-radius: 8px;
+      margin-bottom: 2rem;
+    }
+
+    .card {
+      flex: 1;
+      background-color: #f8f8f8;
+      padding: 1rem;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .card h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.1rem;
+    }
+
+    .document-section {
+      background: linear-gradient(#e3ecfc, #f5f7fa);
+      padding: 2rem;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    .document-section img {
+      width: 80px;
+      margin-bottom: 1rem;
+    }
+
+    .document-section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .document-section p {
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .start-button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .start-button:hover {
+      background-color: #0056b3;
+    }
+
+    .section-heading {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="menu.png" alt="Menu" class="icon" />
+      <h1>Smart Credit <span class="bold">Analyzer</span></h1>
+    </div>
+    <div class="navbar-right">
+      <img src="Task--complete.png" class="icon" alt="Tasks" />
+      <img src="Settings.png" class="icon" alt="Settings" />
+      <img src="Notification--new.png" class="icon" alt="Notifications" />
+      <span class="name">Rina Dewi</span>
+      <img src="avatar.png" class="avatar" alt="Avatar" />
+      <img src="Dropdown.svg" class="icon" alt="Dropdown" />
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header"></div>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">Credit Checklist Request</div>
+
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <div class="home-section">
+      <div class="card">
+        <img src="Search.png" alt="Search">
+        <h3>Search</h3>
+        <p>Search across the bank statement stored in the application and start/continue to analyze where you left off.</p>
+      </div>
+      <div class="card">
+        <img src="Upload.png" alt="Upload">
+        <h3>Upload</h3>
+        <p>Upload single or multiple bank statements in PDF/Tiff/Docs file to be analyzed.<br>The uploaded documents can be reviewed or saved as a draft to be checked later.</p>
+      </div>
+      <div class="card">
+        <img src="Analyze.png" alt="Analyze">
+        <h3>Analyze</h3>
+        <p>Analyze single or multiple bank statements for fraud indication.<br>Recommendation will be provided based on risk level score to ease the decision maker of approval.</p>
+      </div>
+    </div>
+
+    <!-- Heading before Document Section -->
+    <h2 class="section-heading">Document List</h2>
+
+    <div class="document-section">
+      <img src="Empty Icon.png" alt="No Document">
+      <h2>You don’t have document to be reviewed.</h2>
+      <p>Start by defining credit checklist request and continue from there.</p>
+      <button class="start-button" onclick="window.location.href='page2.html'">Start</button>
+    </div>
+  </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Credit Checklist Upload</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      background: #f4f7fb;
+      color: #161616;
+    }
+
+    /* Your Navbar & Header Styles */
+    .navbar {
+      width: 100%;
+      height: 54px;
+      background: #000;
+      color: #fff;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-left img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .navbar h1 {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .navbar .bold {
+      font-weight: 700;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar-right img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .header {
+      background: url('Banner.png') no-repeat center/cover;
+      padding: 2rem;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      min-height: 180px;
+    }
+
+    .page-label {
+      background: #f0f0f0;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    /* Sidebar from Upload Page */
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+
+    .sidebar {
+     
+      width: 320px;
+height: 316px;
+flex-shrink: 0;
+      padding: 32px 20px;
+     
+      border-top: 1px solid var(--Border-border-subtle-selected-03, #C6C6C6);
+border-right: 1px solid var(--Border-border-subtle-selected-03, #C6C6C6);
+background: var(--color-bg-gradient-01, linear-gradient(180deg, #F4F4F4 0%, #C7DAFF 129.11%));
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 32px;
+    }
+
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .sidebar li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #4d5358;
+      
+    }
+
+    .sidebar li .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #0f62fe;
+      margin-right: 10px;
+    }
+
+    .sidebar li.active {
+      font-weight: bold;
+      color: #0f62fe;
+    }
+
+    /* Main Content */
+    .main {
+      flex: 1;
+      background: var(--color-bg-gradient-01, linear-gradient(180deg, #F4F4F4 0%, #C7DAFF 129.11%));
+      padding: 40px;
+      overflow-y: auto;
+      
+    }
+
+    .chat {
+      max-width: 700px;
+      margin-bottom: 40px;
+    }
+
+    .chat-bubble {
+      display: flex;
+      margin-bottom: 16px;
+    }
+
+    .chat-bubble img {
+        width: 75.25px;
+height: 84px;
+flex-shrink: 0;
+aspect-ratio: 75.25/84.00;
+    }
+
+    .chat-text {
+      background-color: #e8f0fe;
+      padding: 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      color: #1c1c1c;
+    }
+
+    .chat-text.no-avatar {
+      margin-left: 48px;
+    }
+
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #e6f0ff;
+}
+
+.container {
+  padding: 24px;
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f4f4f4;
+  padding: 12px;
+  border-radius: 4px 4px 0 0;
+}
+
+.search-bar {
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  width: 200px;
+  background: transparent;
+  outline: none;
+}
+
+.toolbar-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.icon-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+
+.upload-combined-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plus-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+/* .upload-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  font-size: 20px;
+    padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.plus-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 25px;
+  
+  border-radius: 2px;
+  cursor: pointer;
+} */
+
+.bottom-bar-container {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+}
+
+.next-btn {
+  background: var(--background-ui-background, #7e7c7c);
+  color: rgb(249, 243, 243);
+  width: 200px;
+  height: 80px;
+  border: none;
+  border-radius: 0; /* Remove rounded edges for seamless side-by-side look */
+  font-size: large;
+  cursor: pointer;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.next-btn.active {
+  opacity: 1;
+  pointer-events: all;
+  background-color: #0033cc;
+}
+
+.case {
+      background: #fff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      display: none; 
+}
+
+    .css1   body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      
+    }
+
+    .css1  .details-button {
+      background: none;
+      border: none;
+      color: #0062ff;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .css1  .section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      display: none; /* Hidden initially */
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .css1 .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .css1  .info-icon img {
+      width: 50px;
+      height: 50px;
+      padding-top: 20px;
+    }
+
+    .css1 .section-header h2 {
+      padding-top: 20px;
+      font-size: 28px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .css1  .card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .css1  .subheading {
+      color: #0062ff; /* Blue color for subheading */
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .css1  .transactions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .css1 .transaction-button {
+      background-color: #e8f0fe;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      color: #0052cc;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .css1  .card-text {
+      font-size: 14px;
+      color: #333333;
+      margin-top: 5px;
+    }
+
+    .css1  .show-more-button {
+      background: none;
+      border: none;
+      color: #0062ff;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+
+
+.table {
+  border: 1px solid #ccc;
+  border-top: none;
+  background: white;
+}
+
+.table-header {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  background: #e6e6e6;
+  padding: 12px;
+  
+}
+.table-body .table-row {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* .table-header {
+  font-weight: bold;
+  background: #f8f8f8;
+} */
+
+.table-body .table-row > div {
+  padding: 10px 0;
+  text-align: center;
+}
+.moreButton{
+  
+  background: none;
+  border: none;
+  color: #0062ff;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  padding: 20px 20px;
+ 
+}
+
+.table-empty {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  background: #f9f9f9;
+  border-top: 1px solid #ddd;
+}
+
+.left-pagination,
+.right-pagination {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.footer-buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 24px;
+}
+.status-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.status-cell img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+
+.outlined-btn {
+  border: 2px solid #0044ff;
+  background: transparent;
+  color: #0044ff;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+
+      .main {
+        padding: 20px;
+      }
+
+      .upload-combined-btn {
+  background: #0066ff;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-size: 18px;
+  border-radius: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.plus-icon {
+  font-size: 22px;
+  line-height: 1;
+}
+
+#fileTable {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+#fileTable th,
+#fileTable td {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="menu.png" alt="Menu" class="icon" />
+      <h1>Smart Credit <span class="bold">Analyzer</span></h1>
+    </div>
+    <div class="navbar-right">
+      <img src="Task--complete.png" class="icon" alt="Tasks" />
+      <img src="Settings.png" class="icon" alt="Settings" />
+      <img src="Notification--new.png" class="icon" alt="Notifications" />
+      <span class="name">Rina Dewi</span>
+      <img src="avatar.png" class="avatar" alt="Avatar" />
+      <img src="Dropdown.svg" class="icon" alt="Dropdown" />
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <div class="header"></div>
+
+  <!-- PAGE LABEL -->
+  <div class="page-label">Credit Checklist Request</div>
+
+  <div class="container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      
+      <ul>
+        <li class="active"><span class="dot"></span> Transaction Details</li>
+        <li class="active"><span class="dot"></span> Risk Assessment</li>
+        <li class="active"><span class="dot"></span> Risk Clarification</li>
+        <li><span class="dot"></span> Final Scoring</li>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <div class="chat">
+        <div class="chat-bubble">
+          <img src="Luca.png" alt="Avatar">
+          <div class="chat-text">Your document analysis is complete! I found several indications of fraud in the documents you uploaded..</div>
+        </div>
+        <div class="chat-bubble">
+          <div class="chat-text no-avatar">Please note that I can only analyze bank statements in Indonesian and focus on types of fraud risks that I’ve been trained to detect.</div>
+        </div>
+        <div class="chat-bubble">
+          <div class="chat-text no-avatar">Since I’m still learning, there’s a chance that some risks may not have been detected, or the document quality wasn’t clear enough for accurate analysis.</div>
+        </div>
+      </div>
+      <h3>Document List</h3>
+      <div class="toolbar">
+        <input type="text" placeholder="Search document" class="search-bar" />
+        <div class="toolbar-actions">
+            <button class="icon-btn">
+                <img src="Filter.svg" alt="Search" />
+              </button>
+              <button class="icon-btn">
+                <img src="Refresh.svg" alt="Refresh" />
+              </button>
+              <input type="file" id="fileUpload" style="display: none;" /> 
+          <button class="upload-combined-btn">
+            Upload <span class="plus-icon">+</span>
+          </button>
+          
+          
+          <!-- Optional chat/status text -->
+          <!-- <p id="chatText">Please upload a document to proceed.</p> -->
+           
+
+        </div>
+      </div>
+  
+
+      
+        <div class="table">
+          <div class="table-header">
+            <div>Document Name</div>
+            <div>Status</div>
+            <div>Transaction Inconsistency</div>
+            <div>Illegitimate Source of Income</div>
+            <div>Imbalance Cash Flow</div>
+            <div>Suspicious Cash Deposit</div>
+            <div>Linked Account Activity</div>
+            <div>Income/Expense Difference</div>
+          </div>
+      
+          <div class="table-body" id="customFileList">
+            <!-- File row will be inserted here -->
+          </div>
+
+
+
+          <div class="case" id="case1">
+            <div class="css1">
+            <div class="section-header">
+              
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2>Transaction Pattern Inconsistency</h2>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 2/20/2025, 12:30 PM</button>
+                <button class="transaction-button">Transaction 2 | 2/21/2025, 15:30 PM</button>
+                <button class="transaction-button">Transaction 3 | 3/22/2025, 11:30 PM</button>
+              </div>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">REPEATED PATTERN (SAME AMOUNT OF TRANSFER)</p>
+              <p class="card-text">
+                Same amount of transfer pattern detected in 3 concurrent times with amount of Rp9,999,999.
+              </p>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">BALANCE SURGE BEFORE CREDIT APPLICATION</p>
+              <p class="card-text">
+                The extreme surge of balance was detected 7 days before credit application was submitted.
+              </p>
+            </div>
+            <button class="show-more-button">Show more</button>
+            
+         
+            <div class="section-header">
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2>Illegitimate Source of Income</h2>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 1/12/2025, 12:30 PM</button>
+                <button class="transaction-button">Transaction 2 | 2/17/2025, 15:30 PM</button>
+                <button class="transaction-button">Transaction 3 | 3/3/2025, 11:30 PM</button>
+              </div>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">UNUSUAL OR UNVERIFIED SENDER NAME</p>
+              <p class="card-text">
+                PT XZ Financial is not enlisted formally as a payroll company and is categorized as not credible.
+              </p>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">NON FIXED RANDOM INCOMING AMOUNT</p>
+              <p class="card-text">
+                Abnormal incoming amounts Rp25,000,000 falls beyond the average monthly income which amounts to Rp8,500,000 and it came from unverified source.
+              </p>
+            </div>
+            <button class="show-more-button">Show more</button>
+        
+        
+        
+            <div class="section-header">
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2>Suspicious Cash Deposit</h2>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 3/5/2025, 10:30 PM</button>
+                 </div>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">MULTIPLE LARGE CASH DEPOSIT</p>
+              <p class="card-text">
+                4 times over Rp5,000,000 in 3 months. These recurring deposit is not suitable with customer profile.
+              </p>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">LARGE DEPOSIT BEFORE CREDIT DEPOSIT</p>
+              <p class="card-text">
+                The extreme surge of cash deposit was detected before credit application was submitted. There is a pattern indication of balance enhancement for smoothing out the screening purposes
+              </p>
+            </div>
+            <div class="card">
+              <p class="subheading">NO CLEAR SOURCE OF CASH DEPOSIT</p>
+              <p class="card-text">
+                No clear source detected from incoming deposit (neither from salary nor regular business activitv)
+              </p>
+            </div>
+            <button class="show-more-button">Show more</button>
+        
+            <div class="section-header">
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2> Linked Account Activity</h2>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 3/4/2025, 10:30 PM</button>
+              </div>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">SAME AMOUNT OF TRANSFER BETWEEN ACCOUNTS</p>
+              <p class="card-text">
+                3 times of transfer amounted to Rp9,999,999 which could indicate internal fund circulation to manipulate balance.
+              </p>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">LINKED FAMILY ACCOUNT ACTIVITY</p>
+              <p class="card-text">
+                Customer has family linked account (spouse). There is an indication of cross-linked activity between family member to manipulate account
+              </p>
+            </div>
+        
+            <button class="show-more-button">Show more</button>
+        
+        
+            <div class="section-header">
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2>Imbalance Cash Flow</h2>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 2/17/2025, 10:30 PM</button>
+                
+              </div>
+            </div>
+        
+            <div class="card">
+              <p class="subheading">HIGH INCOME BUT CASH-OUT IS NOT PROPORTIONAL</p>
+              <p class="card-text">
+                Imbalance amount of income of Rp25,000,000 versus expense of Rp6,000,000. Potential fund accumulation and further clarification is needed on the cash flow activity.
+              </p>
+            </div>
+            
+        
+            <div class="card">
+              <p class="subheading">CASH IN DIRECTLY FOLLOWED BY CASH OUT</p>
+              <p class="card-text">
+                Further clarification is needed on the imbalance cash flow activity.
+              </p>
+            </div>
+        
+            <button class="show-more-button">Show more</button>
+        
+          </div>
+          </div>
+        
+          <div class="case" id="case2">
+            <div class="css1">
+            <div class="section-header">
+              <div class="info-icon">
+                <img src="Info.svg" alt="Info">
+              </div>
+              <h2>Illegitimate Source of Income</h2>
+            </div>
+          
+            <div class="card">
+              <p class="subheading">WHERE IT IS FOUND</p>
+              <div class="transactions">
+                <button class="transaction-button">Transaction 1 | 1/12/2025, 12:30 PM</button>
+                <button class="transaction-button">Transaction 2 | 2/17/2025, 15:30 PM</button>
+                <button class="transaction-button">Transaction 3 | 3/3/2025, 11:30 PM</button>
+              </div>
+            </div>
+          
+            <div class="card">
+              <p class="subheading">UNUSUAL OR UNVERIFIED SENDER NAME</p>
+              <p class="card-text">
+                PT XZ Financial is not enlisted formally as a payroll company and is categorized as not credible.
+              </p>
+            </div>
+          
+            <div class="card">
+              <p class="subheading">NON FIXED RANDOM INCOMING AMOUNT</p>
+              <p class="card-text">
+                Abnormal incoming amounts Rp25,000,000 falls beyond the average monthly income which amounts to Rp8,500,000 and it came from unverified source.
+              </p>
+            </div>
+          
+            <button class="show-more-button">Show more</button>
+          
+          </div>
+        </div>
+          <div>
+            <button class="moreButton">More Details</button>
+            
+          </div>
+          
+       
+      
+          <div class="table-empty">
+            <div class="left-pagination">
+              <span id="pageDropdown">1 ⌄</span>
+              <span id="itemCount">0 – 0 of 0 items</span>
+            </div>
+            <div class="right-pagination">
+              <span id="pageCount">1 ⌄ of 1 pages</span>
+              <button class="nav-btn">◀</button>
+              <button class="nav-btn">▶</button>
+            </div>
+          </div>
+        </div>
+
+
+        
+        
+       
+        
+        
+
+      
+        <div class="footer-buttons">
+          <button class="outlined-btn">Add participant</button>
+          <button class="outlined-btn">Save as a draft</button>
+        </div>
+      
+        <!-- Script to load file name -->
+        <!-- <script>
+          document.querySelector('.upload-combined-btn').addEventListener('click', function () {
+            document.getElementById('fileUpload').click();
+          });
+        
+          document.getElementById('fileUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              // Storing file name and size correctly
+              localStorage.setItem('uploadedFileName', file.name);
+              localStorage.setItem('uploadedFileSize', file.size);
+        
+              const customList = document.getElementById('customFileList');
+        
+              // Create a custom row using divs
+              const row = document.createElement('div');
+              row.className = 'table-row';
+        
+              const nameDiv = document.createElement('div');
+              const sizeDiv = document.createElement('div');
+              const statusDiv = document.createElement('div');
+        
+              nameDiv.textContent = file.name;
+              sizeDiv.textContent = (file.size / 1024).toFixed(2) + ' KB'; // Convert size to KB
+              statusDiv.textContent = 'Pending';
+        
+              row.appendChild(nameDiv);
+              row.appendChild(sizeDiv);
+              row.appendChild(statusDiv);
+              customList.appendChild(row);
+            }
+          });
+        
+          window.addEventListener('DOMContentLoaded', () => {
+            // Retrieve file name and size from localStorage
+            const fileName = localStorage.getItem('uploadedFileName');
+            const fileSize = localStorage.getItem('uploadedFileSize');
+        
+            // Debugging: Check what's stored in localStorage
+            console.log('File Name:', fileName);
+            console.log('File Size (Bytes):', fileSize);
+        
+            if (fileName && fileSize) {
+              const tableBody = document.getElementById('customFileList');
+        
+              const row = document.createElement('div');
+              row.className = 'table-row';
+        
+              const createCell = (text, className = '') => {
+                const cell = document.createElement('div');
+                if (className) cell.className = className;
+                cell.textContent = text;
+                return cell;
+              };
+        
+              row.appendChild(createCell(fileName));
+              // row.appendChild(createCell((fileSize / 1024).toFixed(2) + ' KB')); 
+              row.appendChild(createCell('✅ Completed', 'status-complete'));
+              row.appendChild(createCell('❌ Detected', 'status-detected'));
+              row.appendChild(createCell('❌ Detected', 'status-detected'));
+              row.appendChild(createCell('❌ Detected', 'status-detected'));
+              row.appendChild(createCell('❌ Detected', 'status-detected'));
+              row.appendChild(createCell('❌ Detected', 'status-detected'));
+              row.appendChild(createCell('✅ Not Detected', 'status-not-detected'));
+        
+              tableBody.appendChild(row);
+        
+              // Update pagination text
+              document.getElementById('itemCount').textContent = `1 – 1 of 1 items`;
+              document.getElementById('pageCount').textContent = `1 ⌄ of 1 pages`;
+            }
+          });
+        </script> -->
+
+        <script>
+          // Trigger hidden file input on upload button click
+          document.querySelector('.upload-combined-btn').addEventListener('click', function () {
+            document.getElementById('fileUpload').click();
+          });
+        
+          // Helper function to create table cell
+          function createCell(content, className = '') {
+            const cell = document.createElement('div');
+            // cell.textContent = content;
+            // cell.innerHTML = content; // Use innerHTML to allow HTML content
+            if (className) cell.classList.add(className);
+            cell.innerHTML = `
+    <span class="status-cell">
+      ${content}
+    </span>
+  `;
+            return cell;
+          }
+        
+          // Handle file upload
+          document.getElementById('fileUpload').addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (file) {
+              const fileName = file.name;
+              const fileSize = file.size;
+        
+              // Store for later rendering (e.g. on page reload)
+              localStorage.setItem('uploadedFileName', fileName);
+              localStorage.setItem('uploadedFileSize', fileSize);
+        
+              const customList = document.getElementById('customFileList');
+              const row = document.createElement('div');
+              row.className = 'table-row';
+        
+              let fileLink = fileName;
+if (fileName === 'first.pdf') {
+  fileLink = `<a href="Bank1.html" target="_blank">${fileName}</a>`;
+} else if (fileName === 'second.pdf') {
+  fileLink = `<a href="Bank2.html" target="_blank">${fileName}</a>`;
+}
+row.appendChild(createCell(fileLink));
+
+              // row.appendChild(createCell((fileSize / 1024).toFixed(2) + ' KB'));
+              row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Completed', 'status-complete'));
+        
+              if (fileName === 'first.pdf') {
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-not-detected'));
+              } else if (fileName === 'second.pdf') {
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-not-detected'));
+              } else {
+                // For other files, show default cells (optional)
+                row.appendChild(createCell('⚠️ Unknown', 'status-warning'));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+              }
+        
+              customList.appendChild(row);
+        
+              // Update pagination
+              document.getElementById('itemCount').textContent = `1 – 1 of 1 items`;
+              document.getElementById('pageCount').textContent = `1 ⌄ of 1 pages`;
+            }
+          });
+        
+          // Render from localStorage on page load
+          window.addEventListener('DOMContentLoaded', () => {
+            const fileName = localStorage.getItem('uploadedFileName');
+            const fileSize = localStorage.getItem('uploadedFileSize');
+        
+            if (fileName && fileSize) {
+              const tableBody = document.getElementById('customFileList');
+              const row = document.createElement('div');
+              row.className = 'table-row';
+        
+              let fileLink = fileName;
+if (fileName === 'first.pdf') {
+  fileLink = `<a href="Bank1.html" target="_blank">${fileName}</a>`;
+} else if (fileName === 'second.pdf') {
+  fileLink = `<a href="Bank2.html" target="_blank">${fileName}</a>`;
+}
+
+
+
+
+document.querySelector('.moreButton').addEventListener('click', function (e) {
+      e.preventDefault();
+      this.style.display = 'none';
+
+      const uploadedFileName = localStorage.getItem('uploadedFileName');
+      let caseToShow = '';
+
+      if (uploadedFileName === 'first.pdf') {
+        caseToShow = 'case1';
+      } else if (uploadedFileName === 'second.pdf') {
+        caseToShow = 'case2';
+      }
+
+      if (caseToShow) {
+        // Hide all cases first
+        document.querySelectorAll('.case').forEach(caseElement => {
+          caseElement.style.display = 'none';
+        });
+
+        // Show the selected case
+        document.getElementById(caseToShow).style.display = 'block';
+      } 
+    });
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+    
+
+row.appendChild(createCell(fileLink));
+
+              // row.appendChild(createCell((fileSize / 1024).toFixed(2) + ' KB'));
+              row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Completed', 'status-complete'));
+        
+              if (fileName === 'first.pdf') {
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-not-detected'));
+              } else if (fileName === 'second.pdf') {
+                row.appendChild(createCell('<img src="Detected.svg" alt="Detected" /> Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" /> Not Detected', 'status-detected'));
+                row.appendChild(createCell('<img src="Check.svg" alt="Completed" />Not Detected', 'status-not-detected'));
+              } else {
+                row.appendChild(createCell('⚠️ Unknown', 'status-warning'));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+                row.appendChild(createCell('⚠️ Unknown', ''));
+         
+              }
+        
+              tableBody.appendChild(row);
+        
+              // Update pagination
+              
+
+  // const moreDetailsButton = document.querySelector('.moreButton');
+  
+ 
+            
+              
+              document.getElementById('itemCount').textContent = `1 – 1 of 1 items`;
+              document.getElementById('pageCount').textContent = `1 ⌄ of 1 pages`;
+            }
+          });
+
+
+
+
+
+
+
+
+        </script>
+        
+    
+</div>
+<!-- <script>
+  const uploadedFileName = localStorage.getItem('uploadedFileName');
+  if (uploadedFileName) {
+    document.getElementById('fileNameCell').textContent = uploadedFileName;
+    document.getElementById('fileNameCell').href = "#"; // Optional: link to preview or storage
+  }
+</script> -->
+
+<script>
+  function goToNextPage() {
+    // Optional: Add form validation here before proceeding
+    window.location.href = "page6.html"; // Replace with your actual Page 3 filename
+  }
+</script>
+<script>
+  function goTopreviousPage() {
+    // Optional: Add form validation here before proceeding
+    window.location.href = "page3.html"; // Replace with your actual Page 3 filename
+  }
+</script>
+
+
+
+
+<script>
+  function goToNextPage() {
+    const uploadedFileName = localStorage.getItem('uploadedFileName'); // Get from localStorage
+    let nextPageUrl = "page6.html"; // Default next page
+
+    if (uploadedFileName === "first.pdf") {
+      nextPageUrl = "page6-1.html";
+    } else if (uploadedFileName === "second.pdf") {
+      nextPageUrl = "page6.html";
+    }
+
+    window.location.href = nextPageUrl;
+  }
+</script>
+
+ 
+
+
+
+<button onclick="goToNextPage()">Go to Next Page</button>
+ 
+        
+<div class="bottom-bar-container">
+  <button class="next-btn " onclick="goTopreviousPage()">Previous</button>
+  <button class="next-btn active" onclick="goToNextPage()">Next</button>
+</div>
+      
+
+
+
+
+</script>
+  </body>
+  </html>
+

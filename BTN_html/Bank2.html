@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bank Account Statement</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+  * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      background: #f4f7fb;
+      color: #161616;
+    }
+
+    /* Your Navbar & Header Styles */
+    .navbar {
+      width: 100%;
+      height: 54px;
+      background: #000;
+      color: #fff;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .navbar-left img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .navbar h1 {
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .navbar .bold {
+      font-weight: 700;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .navbar-right img.icon {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .name {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.16px;
+      color: #fff;
+    }
+
+    .header {
+      background: url('Banner.png') no-repeat center/cover;
+      padding: 2rem;
+      color: white;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+      min-height: 180px;
+    }
+
+    .page-label {
+      background: #f0f0f0;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+  
+
+  
+  /* Main Content */
+  .main-content {
+    display: flex;
+    padding: 2rem;
+    gap: 2rem;
+  }
+  body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background: #f8f9fd;
+  margin: 0;
+
+  color: #1d1d1f;
+}
+
+.container {
+  max-width: 600px;
+  margin: auto;
+}
+
+.breadcrumb {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.bread {
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+}
+
+.breadcrumb a {
+  color: #0f62fe;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.breadcrumb span {
+  color: #555;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 5px;
+}
+
+.date-range {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.card h2 {
+  font-size: 18px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.item span:first-child {
+  flex: 1;
+  font-size: 15px;
+}
+
+.badge {
+  background: #e0e0e0;
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-size: 13px;
+  margin: 0 8px;
+  font-weight: bold;
+}
+
+.item a {
+  color: #0f62fe;
+  font-size: 14px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+  
+  /* Page Image */
+  .page-image img {
+  max-width: 80%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <img src="menu.png" alt="Menu" class="icon" />
+      <h1>Smart Credit <span class="bold">Analyzer</span></h1>
+    </div>
+    <div class="navbar-right">
+      <img src="Task--complete.png" class="icon" alt="Tasks" />
+      <img src="Settings.png" class="icon" alt="Settings" />
+      <img src="Notification--new.png" class="icon" alt="Notifications" />
+      <span class="name">Rina Dewi</span>
+      <img src="avatar.png" class="avatar" alt="Avatar" />
+      <img src="Dropdown.svg" class="icon" alt="Dropdown" />
+    </div>
+  </div>
+
+  <!-- MAIN WRAPPER -->
+  <div class="header">
+    <!-- Empty header, if you have something you can add -->
+  </div>
+
+  <div class="page-label">
+    <div class="breadcrumb">
+      <a href="#">Credit Checklist Request</a> <span>&lt; Bank Account Statement</span>
+
+      
+    </div>
+  </div>
+<div class="bread">
+  <h1>Bank Account Statement</h1>
+  <p class="date-range">January - March 2025</p>
+</div>
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+  
+
+      
+
+      <div class="cards-container">
+  
+        <div class="card">
+          <h2>Transaction Pattern Inconsistency</h2>
+          <div class="item">
+            <span>Repeated Pattern</span>
+            <span class="badge">3</span>
+            <a href="#"id="show-repeated-pattern">Show</a>
+          </div>
+          <div class="item">
+            <span>Balance Surge</span>
+            <span class="badge">2</span>
+            <a href="#">Show</a>
+          </div>
+        </div>
+      </div>
+  
+      <!-- PAGE IMAGE -->
+      <div class="page-image">
+        <img id="bank-statement-img" src="bank22.png" alt="Bank Account Statement Screenshot" />
+      </div>
+      <script>
+        document.getElementById("show-repeated-pattern").addEventListener("click", function (e) {
+          e.preventDefault();
+          document.getElementById("bank-statement-img").src = "Bank23.png";
+        });
+      </script>
+      
+      
+      
+    </div>
+  
+  </div>
+  
+  </body>
+  </html>

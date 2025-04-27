@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Illegitimate Source of Income</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .details-button {
+      background: none;
+      border: none;
+      color: #0062ff;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 20px;
+    }
+
+    .section {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      display: none; /* Hidden initially */
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .info-icon img {
+      width: 24px;
+      height: 24px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+      margin: 0;
+      font-weight: bold;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .subheading {
+      color: #0062ff; /* Blue color for subheading */
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .transactions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .transaction-button {
+      background-color: #e8f0fe;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 20px;
+      color: #0052cc;
+      font-size: 12px;
+      cursor: pointer;
+    }
+
+    .card-text {
+      font-size: 14px;
+      color: #333333;
+      margin-top: 5px;
+    }
+
+    .show-more-button {
+      background: none;
+      border: none;
+      color: #0062ff;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="section-header">
+    <div class="info-icon">
+      <img src="Info.svg" alt="Info">
+    </div>
+    <h2>Illegitimate Source of Income</h2>
+  </div>
+
+  <div class="card">
+    <p class="subheading">WHERE IT IS FOUND</p>
+    <div class="transactions">
+      <button class="transaction-button">Transaction 1 | 1/12/2025, 12:30 PM</button>
+      <button class="transaction-button">Transaction 2 | 2/17/2025, 15:30 PM</button>
+      <button class="transaction-button">Transaction 3 | 3/3/2025, 11:30 PM</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <p class="subheading">UNUSUAL OR UNVERIFIED SENDER NAME</p>
+    <p class="card-text">
+      PT XZ Financial is not enlisted formally as a payroll company and is categorized as not credible.
+    </p>
+  </div>
+
+  <div class="card">
+    <p class="subheading">NON FIXED RANDOM INCOMING AMOUNT</p>
+    <p class="card-text">
+      Abnormal incoming amounts Rp25,000,000 falls beyond the average monthly income which amounts to Rp8,500,000 and it came from unverified source.
+    </p>
+  </div>
+
+  <button class="show-more-button">Show more</button>
+
+</body>
+</html>

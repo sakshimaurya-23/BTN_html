@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Final Scoring</title>
+  <style>
+    body {
+  margin: 0;
+  font-family: "IBM Plex Sans", sans-serif;
+  background-color: #f7f9fc;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.risk-box {
+  background-color: #eaf2ff;
+  border-left: 4px solid #3d7ff4;
+  padding: 16px 20px;
+  margin-bottom: 30px;
+  border-radius: 6px;
+}
+
+.risk-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.info-icon {
+  font-size: 22px;
+  margin-top: 4px;
+}
+
+.risk-level {
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.risk-tag {
+  background-color: #ffd8c2;
+  color: #a8431e;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 600;
+  margin-left: 8px;
+}
+
+.risk-description {
+  font-size: 14px;
+  color: #333;
+}
+
+.table-container {
+  background: white;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #e2e4e7;
+  text-align: left;
+}
+
+th, td {
+  padding: 16px 20px;
+  font-size: 15px;
+}
+
+th {
+  font-weight: 600;
+  color: #333;
+}
+
+td {
+  border-top: 1px solid #eee;
+}
+
+.detected {
+  color: #d93025;
+  font-weight: 500;
+}
+
+.status-icon {
+  margin-right: 6px;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="title">Final Scoring</h1>
+
+    <div class="risk-box">
+      <div class="risk-info">
+        <span class="info-icon">ℹ️</span>
+        <div>
+          <div class="risk-level">
+            <strong>Current Risk Level:</strong> 
+            <span class="risk-tag">Low Risk</span>
+          </div>
+          <div class="risk-description">
+            1 fraud parameter is detected. System categorizes the risk level as low.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Parameter</th>
+            <th>Weight (%)</th>
+            <th>Status</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Unclear fund origin</td>
+            <td>15%</td>
+            <td class="detected">
+              <span class="status-icon">⛔</span> Detected
+            </td>
+            <td>0.15</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

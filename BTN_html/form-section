@@ -1,0 +1,209 @@
+<div class="form-section">
+      <div class="section-title">Submitter Info</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Submitter</label>
+          <input type="text" id="submitter" placeholder="Type submitter" oninput="checkFields()"/>
+        </div>
+        <div class="form-group">
+          <label>Unit/Branch Name</label>
+          <input type="text" id="branch" placeholder="Type unit/branch" oninput="checkFields()" />
+        </div>
+      </div>
+
+      <div class="section-title">Customer Info</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Customer Name</label>
+          <input type="text" id="customer" placeholder="Type customer" oninput="checkFields()" />
+        </div>
+        <div class="form-group">
+          <label>Existing Loan</label>
+          <div class="radio-group">
+            <label><input type="radio" name="loan" /> Have</label>
+            <label><input type="radio" name="loan" /> Does not have</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Credit/Request Details</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Credit/Product Type</label>
+          <select id="credit-type" oninput="checkFields()">
+            <option value="">Select Credit Type</option>
+            <option>Personal Loan</option>
+            <option>Home Loan</option>
+            <option>Car Loan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Purpose of Credit</label>
+          <select id="purpose" oninput="checkFields()">
+            <option value="">Select Purpose</option>
+            <option>Education</option>
+            <option>Medical</option>
+            <option>Car Purchase</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Requested Loan Amount</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+        <div class="form-group">
+          <label>Loan Tenure</label>
+          <input type="text" placeholder="In months" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Interest Rate Offered</label>
+          <input type="text" placeholder="In %" />
+        </div>
+        <div class="form-group">
+          <label>Repayment Method</label>
+          <div class="radio-group">
+            <label><input type="radio" name="repay" /> Auto Debit</label>
+            <label><input type="radio" name="repay" /> Manual</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Collateral Type</label>
+          <select><option>If any</option></select>
+        </div>
+        <div class="form-group">
+          <label>Collateral Value</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Previous BTN Loan</label>
+          <div class="radio-group">
+            <label><input type="radio" name="btn" /> Have</label>
+            <label><input type="radio" name="btn" /> Does not have</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Credit Insurance Required</label>
+          <div class="radio-group">
+            <label><input type="radio" name="ins" /> Yes</label>
+            <label><input type="radio" name="ins" /> No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Contract & Document Info</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Contract Signature Date</label>
+          <input type="date" />
+        </div>
+        <div class="form-group">
+          <label>Loan Effective Date</label>
+          <input type="date" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Loan Expiry Date</label>
+          <input type="date" />
+        </div>
+      </div>
+
+      <div class="section-title">Transaction Data</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Average Monthly Income</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+        <div class="form-group">
+          <label>Average Monthly Expense</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Largest Incoming Transaction</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+        <div class="form-group">
+          <label>Largest Outgoing Transaction</label>
+          <input type="text" placeholder="Type amount" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Cash Deposit % to Total Credit Value</label>
+          <input type="text" placeholder="In %" />
+        </div>
+        <div class="form-group">
+          <label>Frequency of Cash Deposit &gt; 5 Mio</label>
+          <input type="text" placeholder="Type frequency" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Balance Surge within 7 Days before Application</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Same Amount Transfer Detected</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-title">Risk & Internal Flags</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Customer Blacklisted</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Previous NPL Record</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Have</label>
+            <label><input type="radio" /> Does not have</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Transaction Flagged Suspicious by AML</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Part of Government Program (e.g., KUR)</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Customer Has Linked Family Account</label>
+          <div class="radio-group">
+            <label><input type="radio" /> Yes</label>
+            <label><input type="radio" /> No</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

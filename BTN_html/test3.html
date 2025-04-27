@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Level Classification</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #dce6f9, #e8effd);
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;}
+
+.card-header {
+    background-color: #086af7;
+    color: white;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.risk-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.risk-table th, .risk-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.risk-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: flex-start;
+    gap: 30px;
+    padding: 20px 20px 10px 20px;
+}
+
+.radio-group label {
+    font-size: 16px;
+}
+
+.notes-section {
+    padding: 10px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.notes-section label {
+    margin-bottom: 8px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.notes-section textarea {
+    resize: none;
+    height: 120px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">Risk Level Classification</div>
+            <table class="risk-table">
+                <thead>
+                    <tr>
+                        <th>Score Range</th>
+                        <th>Level</th>
+                        <th>Interpretation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>0.00 - 0.25</td>
+                        <td><span class="icon low">ℹ️</span> Low Risk</td>
+                        <td>Normal activity</td>
+                    </tr>
+                    <tr>
+                        <td>0.26 - 0.50</td>
+                        <td><span class="icon medium">⚠️</span> Medium Risk</td>
+                        <td>Further verification needed</td>
+                    </tr>
+                    <tr>
+                        <td>0.51 - 0.75</td>
+                        <td><span class="icon high">⚡</span> High Risk</td>
+                        <td>Suspicious indication, investigation needed</td>
+                    </tr>
+                    <tr>
+                        <td>0.76 - 1.00</td>
+                        <td><span class="icon critical">⚫</span> Critical</td>
+                        <td>High fraud potential, temporary block needed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="card">
+            <div class="card-header">Result by Analyst</div>
+            <form class="result-form">
+                <div class="radio-group">
+                    <label><input type="radio" name="result" value="approved"> Approved</label>
+                    <label><input type="radio" name="result" value="rejected"> Rejected</label>
+                    <label><input type="radio" name="result" value="need-new-file"> Need new file</label>
+                </div>
+                <div class="notes-section">
+                    <label for="notes">Notes</label>
+                    <textarea id="notes" placeholder="Type notes here"></textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
